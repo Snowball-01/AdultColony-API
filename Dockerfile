@@ -1,22 +1,23 @@
-FROM node:latest
+# Use latest Node.js LTS version
+FROM node:lts
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /srv/app
 
-# Copy package.json and package-lock.json
+# Copy only package files first for better caching
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the entire app source
 COPY . .
 
-# Install TypeScript globally
-RUN npm install -g typescript
+# Build the app
+RUN npm install -g typescript rimraf cpy && npm run build
 
-# Build the application
-RUN npm run build
+# Expose your API port
+EXPOSE 2025
 
-# Start the application
+# Start the app in production
 CMD ["npm", "run", "start:prod"]
