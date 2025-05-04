@@ -1,0 +1,55 @@
+{
+  "name": "adultcolony-api",
+  "version": "1.0.0",
+  "description": "Comprehensive RESTful API for adult content sites that lack official APIs. Provides structured access to PornHub and other platforms with high performance and extensive documentation.",
+  "main": "build/src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "rimraf build && tsc && cpy \"public/**/*\" build/public --parents",
+    "start": "node build/src/index.js",
+    "start:prod": "npm run build && npm run start",
+    "start:dev": "tsx watch src/index.ts"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "pornhub",
+    "adult-content",
+    "scraper",
+    "nodejs",
+    "typescript",
+    "express",
+    "swagger",
+    "documentation",
+    "data-extraction"
+  ],
+  "author": "Snowball-01",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "express-slow-down": "^2.0.3",
+    "phin": "^3.7.1",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "puppeteer": "^24.7.2",
+    "rimraf": "^6.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-themes": "^1.4.3",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "cpy": "^11.1.0",
+    "cpy-cli": "^5.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.8.3"
+  }
+}

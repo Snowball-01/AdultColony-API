@@ -1,0 +1,4 @@
+/* Hide the top bar if you want */
+.swagger-ui .topbar {
+  display: none !important;
+}
