@@ -40,6 +40,9 @@ import { getHentaifox } from "../controllers/hentaifox/hentaifoxGet";
 import { searchHentaifox } from "../controllers/hentaifox/hentaifoxSearch";
 import { randomHentaifox } from "../controllers/hentaifox/hentaifoxRandom";
 
+import { getMissav } from "../controllers/missav/missavGet";
+import { searchMissav } from "../controllers/missav/missavSearch";
+
 /**
  * @swagger
  * tags:
@@ -67,6 +70,8 @@ import { randomHentaifox } from "../controllers/hentaifox/hentaifoxRandom";
  *     description: Operations related to JavTsunami
  *   - name: JavGiga
  *     description: Operations related to JavGiga
+ *   - name: MissAv
+ *     description: Operations related to MissAv
  */
 
 /**
@@ -496,6 +501,68 @@ import { randomHentaifox } from "../controllers/hentaifox/hentaifoxRandom";
  *   get:
  *     summary: Search content on XAsiat
  *     tags: [XAsiat]
+ *     parameters:
+ *       - in: query
+ *         name: query
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Search query
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved search results
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SearchResponse'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+
+/**
+ * @swagger
+ * /missav/get:
+ *   get:
+ *     summary: Get content from MissAv
+ *     tags: [MissAv]
+ *     parameters:
+ *       - in: query
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the content to retrieve
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved content
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/DetailResponse'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+
+/**
+ * @swagger
+ * /missav/search:
+ *   get:
+ *     summary: Search content on MissAv
+ *     tags: [MissAv]
  *     parameters:
  *       - in: query
  *         name: query
@@ -971,6 +1038,8 @@ function scrapeRoutes() {
   router.get("/javtsunami/search", cors(), slow, limiter, searchJavTsunami);
   router.get("/javgiga/get", cors(), slow, limiter, getJavGiga);
   router.get("/javgiga/search", cors(), slow, limiter, searchJavGiga);
+  router.get("/missav/get", cors(), slow, limiter, getMissav);
+  router.get("/missav/search", cors(), slow, limiter, searchMissav);
 
   return router;
 }

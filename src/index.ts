@@ -62,6 +62,7 @@ const swaggerOptions = {
       { name: "JavHDToday" },
       { name: "JavTsunami" },
       { name: "JavGiga" },
+      { name: "MissAv" },
     ],
   },
   apis: ["./src/routes/*.ts", "./src/swagger/*.ts", "./src/models/*.ts"],

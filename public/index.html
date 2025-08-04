@@ -47,30 +47,150 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
-      body {
-        background: #0f0f23;
-        background-image: radial-gradient(
-            circle at 25% 25%,
-            rgba(137, 43, 226, 0.15) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 75% 75%,
-            rgba(0, 183, 255, 0.15) 0%,
-            transparent 50%
-          );
-        color: #fff;
-        font-family: "Poppins", sans-serif;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        overflow-x: hidden;
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --text-primary: #ffffff;
+        --text-secondary: #b8c5d6;
+        --text-accent: #64ffda;
+        --success-color: #00e676;
+        --warning-color: #ff9800;
+        --error-color: #f44336;
+        --shadow-primary: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.4);
       }
 
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--dark-gradient);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Enhanced Background Animations */
+      .animated-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        animation: backgroundShift 20s ease-in-out infinite;
+      }
+
+      @keyframes backgroundShift {
+        0%, 100% { 
+          background: 
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        }
+        33% { 
+          background: 
+            radial-gradient(circle at 60% 20%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 20% 60%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        }
+        66% { 
+          background: 
+            radial-gradient(circle at 80% 60%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 20% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        }
+      }
+
+      /* Geometric Shapes Animation */
+      .geometric-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 20s infinite linear;
+      }
+
+      .shape:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-gradient);
+        border-radius: 50%;
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .shape:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        background: var(--secondary-gradient);
+        transform: rotate(45deg);
+        top: 60%;
+        right: 10%;
+        animation-delay: -5s;
+      }
+
+      .shape:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        background: var(--accent-gradient);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        bottom: 20%;
+        left: 20%;
+        animation-delay: -10s;
+      }
+
+      .shape:nth-child(4) {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        top: 30%;
+        right: 30%;
+        animation-delay: -15s;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-20px) rotate(90deg);
+        }
+        50% {
+          transform: translateY(-40px) rotate(180deg);
+        }
+        75% {
+          transform: translateY(-20px) rotate(270deg);
+        }
+      }
+
+      /* Enhanced Particles */
       .particles {
         position: fixed;
         top: 0;
@@ -84,175 +204,331 @@
       .particle {
         position: absolute;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        animation: float 15s infinite linear;
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.6), rgba(118, 75, 162, 0.6));
+        animation: particleFloat 25s infinite linear;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
       }
 
-      @keyframes float {
+      @keyframes particleFloat {
         0% {
-          transform: translateY(0) rotate(0deg);
+          transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
           opacity: 0;
         }
         10% {
           opacity: 1;
+          transform: translateY(90vh) translateX(10px) rotate(36deg) scale(1);
         }
         90% {
           opacity: 1;
+          transform: translateY(10vh) translateX(-10px) rotate(324deg) scale(1);
         }
         100% {
-          transform: translateY(-1000%) rotate(720deg);
+          transform: translateY(-10vh) translateX(0) rotate(360deg) scale(0);
           opacity: 0;
         }
       }
 
-      .card {
-        background: rgba(22, 22, 42, 0.85);
-        backdrop-filter: blur(8px);
-        border-radius: 1.5rem;
-        box-shadow: 0 0 30px rgba(138, 43, 226, 0.4),
-          0 0 60px rgba(0, 183, 255, 0.1);
-        padding: 2.5rem;
-        width: 90%;
-        max-width: 550px;
-        margin: 2rem auto;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transform-style: preserve-3d;
-        perspective: 1000px;
-        animation: cardEntrance 1s ease forwards;
+      /* Main Container */
+      .main-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+        position: relative;
+      }
+
+      /* Enhanced Card */
+      .status-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 2rem;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-primary), var(--shadow-glow);
+        padding: 3rem;
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        overflow: hidden;
+        animation: cardEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      .status-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
       }
 
       @keyframes cardEntrance {
-        from {
-          opacity: 0;
-          transform: translateY(40px) rotateX(-10deg);
-        }
         to {
           opacity: 1;
-          transform: translateY(0) rotateX(0);
+          transform: translateY(0);
         }
       }
 
-      .title-container {
+      /* Header Section */
+      .header-section {
+        text-align: center;
+        margin-bottom: 3rem;
         position: relative;
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .title-glow {
-        text-shadow: 0 0 10px rgba(138, 43, 226, 0.8),
-          0 0 20px rgba(0, 183, 255, 0.4);
-        background: linear-gradient(90deg, #8a2be2, #00b7ff);
+      .main-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        background: var(--primary-gradient);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        letter-spacing: 0.5px;
-      }
-
-      .rocket {
+        margin-bottom: 1rem;
+        position: relative;
         display: inline-block;
-        animation: rocketShake 2s infinite;
-        transform-origin: center;
       }
 
-      @keyframes rocketShake {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-5px) rotate(5deg);
-        }
+      .rocket-icon {
+        display: inline-block;
+        font-size: 2rem;
+        margin-right: 0.5rem;
+        animation: rocketBounce 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.5));
       }
 
-      .stat-row {
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
-        margin-bottom: 0.5rem;
+      @keyframes rocketBounce {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-10px) rotate(5deg); }
+        50% { transform: translateY(-5px) rotate(-2deg); }
+        75% { transform: translateY(-8px) rotate(3deg); }
+      }
+
+      .status-indicator-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .status-indicator {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--success-color);
+        box-shadow: 0 0 20px rgba(0, 230, 118, 0.6);
+      }
+
+      .status-indicator::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 50%;
+        border: 2px solid var(--success-color);
+        opacity: 0.6;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.6; }
+        50% { transform: scale(1.2); opacity: 0.3; }
+        100% { transform: scale(1.4); opacity: 0; }
+      }
+
+      .status-text {
+        font-weight: 600;
+        color: var(--success-color);
+        font-size: 1.1rem;
+        text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+      }
+
+      /* Action Bar */
+      .action-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .playground-button {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        background: var(--primary-gradient);
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .playground-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .playground-button:hover::before {
+        left: 100%;
+      }
+
+      .playground-button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+      }
+
+      .playground-icon {
+        font-size: 1.2rem;
+        animation: wiggle 4s ease-in-out infinite;
+      }
+
+      @keyframes wiggle {
+        0%, 100% { transform: rotate(0deg); }
+        10% { transform: rotate(10deg); }
+        20% { transform: rotate(-8deg); }
+        30% { transform: rotate(6deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(2deg); }
+        60% { transform: rotate(0deg); }
+      }
+
+      /* Stats Section */
+      .stats-container {
+        margin-bottom: 2.5rem;
+      }
+
+      .stat-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 0.75rem;
         background: rgba(255, 255, 255, 0.05);
-        border-left: 3px solid transparent;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         transition: all 0.3s ease;
-        transform: translateX(-20px);
+        position: relative;
+        overflow: hidden;
+        transform: translateX(-30px);
         opacity: 0;
-        animation: slideIn 0.5s forwards;
+        animation: slideInStats 0.6s ease forwards;
       }
 
-      .stat-row:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-left: 3px solid #8a2be2;
-        transform: translateX(5px);
-      }
+      .stat-item:nth-child(1) { animation-delay: 0.1s; }
+      .stat-item:nth-child(2) { animation-delay: 0.2s; }
+      .stat-item:nth-child(3) { animation-delay: 0.3s; }
+      .stat-item:nth-child(4) { animation-delay: 0.4s; }
+      .stat-item:nth-child(5) { animation-delay: 0.5s; }
 
-      @keyframes slideIn {
+      @keyframes slideInStats {
         to {
           transform: translateX(0);
           opacity: 1;
         }
       }
 
+      .stat-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: var(--accent-gradient);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .stat-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .stat-item:hover::before {
+        transform: scaleY(1);
+      }
+
       .stat-label {
-        color: #a78bfa;
         font-weight: 600;
-        font-size: 0.95rem;
+        color: var(--text-secondary);
+        font-size: 1rem;
       }
 
       .stat-value {
-        color: #e2e8f0;
-        font-family: "Monaco", monospace;
-        background: rgba(0, 0, 0, 0.2);
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        color: var(--text-primary);
+        background: rgba(0, 0, 0, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
         font-size: 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
+      .stat-value.success {
+        color: var(--success-color);
+        background: rgba(0, 230, 118, 0.1);
+        border-color: rgba(0, 230, 118, 0.3);
+      }
+
+      .version-badge {
+        background: var(--secondary-gradient);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+      }
+
+      /* Footer */
       .footer {
-        margin-top: 2rem;
-        padding-top: 1rem;
+        text-align: center;
+        padding-top: 2rem;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.6);
-      }
-
-      .heart {
-        color: #ff6b81;
-        display: inline-block;
-        animation: pulse 1.5s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.2);
-        }
-        100% {
-          transform: scale(1);
-        }
+        color: var(--text-secondary);
+        font-size: 0.95rem;
       }
 
       .footer a {
-        color: #00b7ff;
+        color: var(--text-accent);
         text-decoration: none;
+        font-weight: 500;
         position: relative;
         transition: all 0.3s ease;
       }
 
       .footer a::after {
-        content: "";
+        content: '';
         position: absolute;
-        width: 0;
-        height: 1px;
         bottom: -2px;
         left: 0;
-        background: #00b7ff;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
         transition: width 0.3s ease;
       }
 
@@ -260,210 +536,167 @@
         width: 100%;
       }
 
-      .true-value {
-        color: #10b981;
-      }
-
-      /* Status indicator */
-      .status-indicator {
-        position: relative;
+      .heart {
+        color: #ff6b81;
         display: inline-block;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #10b981;
-        margin-right: 0.5rem;
+        animation: heartbeat 1.5s ease-in-out infinite;
+        margin: 0 0.5rem;
       }
 
-      .status-indicator::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: #10b981;
-        opacity: 0.4;
-        animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+      @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
       }
 
-      @keyframes ping {
-        75%,
-        100% {
-          transform: scale(2);
-          opacity: 0;
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .main-container {
+          padding: 1rem;
+        }
+
+        .status-card {
+          padding: 2rem;
+          border-radius: 1.5rem;
+        }
+
+        .main-title {
+          font-size: 2rem;
+        }
+
+        .playground-button {
+          padding: 0.875rem 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        .stat-item {
+          padding: 1rem;
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+
+        .stat-label, .stat-value {
+          font-size: 0.9rem;
         }
       }
 
-      .version-badge {
-        padding: 0.25rem 0.5rem;
-        border-radius: 9999px;
-        background: linear-gradient(135deg, #8a2be2 0%, #00b7ff 100%);
-        color: white;
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-
-      /* Playground button styles */
-      .action-bar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-      }
-
-      .playground-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1.2rem;
-        background: linear-gradient(135deg, #8a2be2 0%, #00b7ff 100%);
-        color: white;
-        border-radius: 9999px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .playground-button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #00b7ff 0%, #8a2be2 100%);
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .playground-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 7px 20px rgba(138, 43, 226, 0.5);
-      }
-
-      .playground-button:hover::before {
-        opacity: 1;
-      }
-
-      .playground-button:active {
-        transform: translateY(1px);
-        box-shadow: 0 2px 10px rgba(138, 43, 226, 0.4);
-      }
-
-      .playground-icon {
-        display: inline-block;
-        animation: wiggle 3s infinite;
-      }
-
-      @keyframes wiggle {
-        0%,
-        100% {
-          transform: rotate(0);
+      @media (max-width: 480px) {
+        .status-card {
+          padding: 1.5rem;
         }
-        15% {
-          transform: rotate(15deg);
+
+        .main-title {
+          font-size: 1.75rem;
         }
-        30% {
-          transform: rotate(-10deg);
-        }
-        45% {
-          transform: rotate(5deg);
-        }
-        60% {
-          transform: rotate(-5deg);
-        }
-        75% {
-          transform: rotate(0);
+
+        .rocket-icon {
+          font-size: 1.5rem;
         }
       }
 
-      .arrow-icon {
-        transition: transform 0.3s ease;
+      /* Loading Animation */
+      .loading-skeleton {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
       }
 
-      .playground-button:hover .arrow-icon {
-        transform: translateX(3px);
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      /* Hover Effects for Card */
+      .status-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 
+          0 35px 60px -12px rgba(0, 0, 0, 0.3),
+          0 0 60px rgba(102, 126, 234, 0.5);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-gradient);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-gradient);
       }
     </style>
   </head>
   <body>
+    <div class="animated-background"></div>
+    <div class="geometric-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
     <div class="particles" id="particles"></div>
 
-    <div class="card animate__animated animate__fadeIn">
-      <div class="title-container">
-        <h1 class="text-3xl font-bold title-glow text-center mb-1">
-          <span class="rocket">🚀</span> AdultColony API Status
-        </h1>
-        <div class="flex justify-center items-center mt-2">
-          <div class="status-indicator"></div>
-          <span class="true-value">ONLINE</span>
+    <div class="main-container">
+      <div class="status-card">
+        <div class="header-section">
+          <h1 class="main-title">
+            <span class="rocket-icon">🚀</span>AdultColony API Status
+          </h1>
+          <div class="status-indicator-container">
+            <div class="status-indicator"></div>
+            <span class="status-text">ONLINE</span>
+          </div>
         </div>
-      </div>
 
-      <div class="action-bar">
-        <a href="/docs" class="playground-button">
-          <span class="playground-icon">🎮</span>
-          <span>Try Playground</span>
-          <svg
-            class="arrow-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
+        <div class="action-bar">
+          <a href="/docs" class="playground-button">
+            <span class="playground-icon">🎮</span>
+            <span>Try Playground</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
 
-      <div id="stats" class="space-y-3">
-        <!-- Stats will be populated here -->
-      </div>
+        <div class="stats-container" id="stats">
+          <!-- Stats will be populated here -->
+        </div>
 
-      <div class="footer">
-        <span>Made with</span>
-        <span class="heart">❤️</span>
-        <span>by</span>
-        <a
-          href="https://t.me/Snowball_Official"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Snowball</a
-        >
+        <div class="footer">
+          <span>Made with</span>
+          <span class="heart">❤️</span>
+          <span>by</span>
+          <a href="https://t.me/Snowball_Official" target="_blank" rel="noopener noreferrer">Snowball</a>
+        </div>
       </div>
     </div>
 
     <script>
-      // Create floating particles background
-      function createParticles() {
+      // Enhanced particle system
+      function createAdvancedParticles() {
         const particlesContainer = document.getElementById("particles");
-        const particleCount = 20;
+        const particleCount = window.innerWidth < 768 ? 15 : 30;
 
         for (let i = 0; i < particleCount; i++) {
-          const size = Math.random() * 5 + 2;
+          const size = Math.random() * 4 + 2;
           const particle = document.createElement("div");
           particle.classList.add("particle");
 
-          // Set random position and size
           particle.style.width = `${size}px`;
           particle.style.height = `${size}px`;
           particle.style.left = `${Math.random() * 100}%`;
-          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.top = `100%`;
 
-          // Random animation delay and duration
-          const duration = Math.random() * 20 + 10;
+          const duration = Math.random() * 15 + 20;
           const delay = Math.random() * 10;
           particle.style.animationDuration = `${duration}s`;
           particle.style.animationDelay = `${delay}s`;
@@ -472,70 +705,130 @@
         }
       }
 
-      // Populate stats with animation
+      // Enhanced stats population with loading animation
       function populateStats(data) {
         const statsDiv = document.getElementById("stats");
         let index = 0;
 
-        for (const [key, value] of Object.entries(data)) {
-          const row = document.createElement("div");
-          row.classList.add("stat-row");
-          row.style.animationDelay = `${index * 0.1}s`;
+        // Show loading skeleton first
+        statsDiv.innerHTML = Array(5).fill(0).map(() => 
+          `<div class="stat-item loading-skeleton" style="height: 60px; border-radius: 1rem;"></div>`
+        ).join('');
 
-          let displayValue = value;
-          let extraClasses = "";
+        // Simulate loading delay for better UX
+        setTimeout(() => {
+          statsDiv.innerHTML = '';
+          
+          for (const [key, value] of Object.entries(data)) {
+            const row = document.createElement("div");
+            row.classList.add("stat-item");
+            row.style.animationDelay = `${index * 0.1}s`;
 
-          // Special formatting for certain fields
-          if (key === "Success" && value === "true") {
-            extraClasses = "true-value";
+            let displayValue = value;
+            let extraClasses = "";
+
+            if (key === "Success" && value === "true") {
+              extraClasses = "success";
+            }
+
+            if (key === "Version") {
+              displayValue = `<span class="version-badge">${value}</span>`;
+            }
+
+            row.innerHTML = `
+              <span class="stat-label">${key}</span>
+              <span class="stat-value ${extraClasses}">${displayValue}</span>
+            `;
+
+            statsDiv.appendChild(row);
+            index++;
           }
-
-          if (key === "Version") {
-            displayValue = `<span class="version-badge">${value}</span>`;
-          }
-
-          row.innerHTML = `
-            <span class="stat-label">${key}</span>
-            <span class="stat-value ${extraClasses}">${displayValue}</span>
-          `;
-
-          statsDiv.appendChild(row);
-          index++;
-        }
+        }, 1000);
       }
 
-      // Initialize
-      document.addEventListener("DOMContentLoaded", () => {
-        createParticles();
-
-        // Fetch API stats
-        fetch("/api/stats")
-          .then((res) => res.json())
-          .then((data) => {
-            populateStats(data);
-          })
-          .catch((err) => {
-            document.getElementById("stats").innerHTML =
-              '<div class="p-4 bg-red-900 bg-opacity-50 rounded-lg text-center"><span class="text-red-400">Error fetching API stats.</span></div>';
-          });
-
-        // Add tilt effect on card hover
-        const card = document.querySelector(".card");
+      // Enhanced card tilt effect
+      function initializeCardEffects() {
+        const card = document.querySelector(".status-card");
+        
         card.addEventListener("mousemove", (e) => {
+          if (window.innerWidth < 768) return; // Disable on mobile
+          
           const { left, top, width, height } = card.getBoundingClientRect();
           const x = (e.clientX - left) / width;
           const y = (e.clientY - top) / height;
 
-          const tiltX = (y - 0.5) * 10;
-          const tiltY = (x - 0.5) * -10;
+          const tiltX = (y - 0.5) * 8;
+          const tiltY = (x - 0.5) * -8;
 
-          card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+          card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-5px)`;
         });
 
         card.addEventListener("mouseleave", () => {
-          card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+          card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
         });
+      }
+
+      // Intersection Observer for animations
+      function initializeScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = 'running';
+            }
+          });
+        });
+
+        document.querySelectorAll('.stat-item').forEach(item => {
+          observer.observe(item);
+        });
+      }
+
+      // Performance optimization for mobile
+      function optimizeForMobile() {
+        if (window.innerWidth < 768) {
+          // Reduce particle count and animation complexity on mobile
+          document.querySelectorAll('.shape').forEach(shape => {
+            shape.style.display = 'none';
+          });
+        }
+      }
+
+      // Initialize everything
+      document.addEventListener("DOMContentLoaded", () => {
+        createAdvancedParticles();
+        initializeCardEffects();
+        optimizeForMobile();
+
+        // Fetch API stats with error handling
+        fetch("/api/stats")
+          .then((res) => {
+            if (!res.ok) throw new Error('Network response was not ok');
+            return res.json();
+          })
+          .then((data) => {
+            populateStats(data);
+          })
+          .catch((err) => {
+            console.error('Error fetching stats:', err);
+            document.getElementById("stats").innerHTML = `
+              <div class="stat-item" style="background: rgba(244, 67, 54, 0.1); border-color: rgba(244, 67, 54, 0.3);">
+                <span class="stat-label">Status</span>
+                <span class="stat-value" style="color: #f44336;">Error fetching API stats</span>
+              </div>
+            `;
+          });
+
+        // Initialize scroll animations after a delay
+        setTimeout(initializeScrollAnimations, 500);
       });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        optimizeForMobile();
+      });
+
+      // Add smooth scroll behavior
+      document.documentElement.style.scrollBehavior = 'smooth';
     </script>
   </body>
 </html>
