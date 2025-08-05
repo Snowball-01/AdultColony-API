@@ -356,7 +356,7 @@ npm run lint
 
 <div align="center">
   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 30px; margin: 20px 0; color: white;">
-    <img src="https://avatars.githubusercontent.com/u/snowball-01" alt="Snowball" width="120" height="120" style="border-radius: 50%; border: 4px solid #ff6b6b;"/>
+    <img src="https://i.ibb.co/FLcZFZnQ/photo-2025-08-05-00-00-30-7534884615996047380.jpg" alt="Snowball" width="120" height="120" style="border-radius: 50%; border: 4px solid #ff6b6b;"/>
     <h3>🌟 Snowball</h3>
     <p><em>Full Stack Developer & API Architect</em></p>
     <p>🚀 Passionate about creating powerful, scalable APIs</p>
