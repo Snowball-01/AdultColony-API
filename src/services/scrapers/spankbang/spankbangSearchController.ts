@@ -20,7 +20,8 @@ export async function scrapeContent(url: string) {
             return {
               link: `${c.SPANKBANG}${$(el).find("a").attr("href")}` || "None",
               id: $(el).find("a").attr("href") || "None",
-              title: $(el).find("a").attr("title") || "None",
+              title:
+                $(el).find("p.line-clamp-2").find("a").attr("title") || "None",
               image: $(el).find("a.thumb img").attr("data-src") || "None",
               duration:
                 $(el).find("a span.video-badge.l").text().trim() || "None",

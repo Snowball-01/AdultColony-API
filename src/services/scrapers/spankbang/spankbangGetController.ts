@@ -29,7 +29,8 @@ export async function scrapeContent(url: string) {
       constructor() {
         this.title = $("h1.main_content_title").text() || "None";
         this.link = $("link[rel='canonical']").attr("href") || "None";
-        this.image = $("#player_cover_img").attr("data-src") || "None";
+        this.image =
+          $("#player_wrapper_outer").find("img").attr("data-src") || "None";
         this.views =
           $("span[data-testid='views']")
             .find("span")

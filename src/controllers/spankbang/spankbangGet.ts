@@ -37,7 +37,6 @@ export async function getSpankbang(req: Request, res: Response) {
      *  async with session.get("https://adultcolonyapi.site/spankbang/get?id=9ohgu") as resp:
      *    print(await resp.json())
      */
-    console.log(id)
     const url = `${c.SPANKBANG}/${id}`;
     const data = await scrapeContent(url);
 
