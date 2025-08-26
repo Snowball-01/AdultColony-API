@@ -69,8 +69,8 @@
 
 ```bash
 # Pull and run the Docker container
-docker pull snowball01/adultcolony-api:latest
-docker run -p 3000:3000 snowball01/adultcolony-api:latest
+docker pull snowball60/adultcolony-api:latest
+docker run -p 3000:3000 snowball60/adultcolony-api:latest
 ```
 
 <div align="center">
