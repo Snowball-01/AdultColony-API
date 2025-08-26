@@ -17,7 +17,11 @@
     <img src="https://img.shields.io/github/issues/Snowball-01/adultcolony-api?style=for-the-badge&color=45b7d1" alt="Issues"/>
     <img src="https://img.shields.io/badge/License-ISC-yellow?style=for-the-badge" alt="License"/>
   </p>
-  
+
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://hub.docker.com/)
+[![Swagger Docs](https://img.shields.io/badge/API-Swagger-green)](https://adultcolony.site/docs)
+
   <h3>🚀 Comprehensive Adult Content API Platform</h3>
   <p>A powerful, fast, and reliable API aggregating content from multiple adult platforms with modern architecture and comprehensive documentation.</p>
 </div>
@@ -66,7 +70,7 @@
 ```bash
 # Pull and run the Docker container
 docker pull snowball01/adultcolony-api:latest
-docker run -p 2025:2025 snowball01/adultcolony-api:latest
+docker run -p 3000:3000 snowball01/adultcolony-api:latest
 ```
 
 <div align="center">
@@ -165,6 +169,7 @@ npm run start:prod
 ## 📊 API Endpoints Overview
 
 ### 🔄 System Endpoints
+
 - `GET /api/stats` - 📈 Get comprehensive system statistics
 
 ### 🎬 Content Discovery Endpoints
@@ -173,7 +178,7 @@ npm run start:prod
 <summary><strong>🔥 Pornhub Endpoints</strong></summary>
 
 - `GET /pornhub/search` - 🔍 Search for content
-- `GET /pornhub/get` - 📹 Get specific video details  
+- `GET /pornhub/get` - 📹 Get specific video details
 - `GET /pornhub/random` - 🎲 Get random video
 
 </details>
@@ -222,11 +227,13 @@ npm run start:prod
 <summary><strong>🎨 Hentai Platforms</strong></summary>
 
 **HentaiFox:**
+
 - `GET /hentaifox/search` - 🔍 Search for content
 - `GET /hentaifox/get` - 📹 Get specific details
 - `GET /hentaifox/random` - 🎲 Get random content
 
 **HentaiCity:**
+
 - `GET /hentaicity/search` - 🔍 Search for content
 - `GET /hentaicity/get` - 📹 Get specific details
 
@@ -236,12 +243,14 @@ npm run start:prod
 <summary><strong>🌏 Asian Content Platforms</strong></summary>
 
 **XAsiat:**
+
 - `GET /xasiat/search` - 🔍 Search for content
 - `GET /xasiat/get` - 📹 Get specific details
 
 **JAV Platforms:**
+
 - `GET /javhdtoday/search` & `GET /javhdtoday/get` - 🎬 JavHDToday
-- `GET /javtsunami/search` & `GET /javtsunami/get` - 🌊 JavTsunami  
+- `GET /javtsunami/search` & `GET /javtsunami/get` - 🌊 JavTsunami
 - `GET /javgiga/search` & `GET /javgiga/get` - ⚡ JavGiga
 - `GET /missav/search` & `GET /missav/get` - 💎 MissAv
 
@@ -356,7 +365,7 @@ npm run lint
 
 <div align="center">
   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 30px; margin: 20px 0; color: white;">
-    <img src="https://i.ibb.co/FLcZFZnQ/photo-2025-08-05-00-00-30-7534884615996047380.jpg" alt="Snowball" width="120" height="120" style="border-radius: 50%; border: 4px solid #ff6b6b;"/>
+    <img src="https://i.ibb.co/FLcZFZnQ/photo-3000-08-05-00-00-30-7534884615996047380.jpg" alt="Snowball" width="120" height="120" style="border-radius: 50%; border: 4px solid #ff6b6b;"/>
     <h3>🌟 Snowball</h3>
     <p><em>Full Stack Developer & API Architect</em></p>
     <p>🚀 Passionate about creating powerful, scalable APIs</p>
