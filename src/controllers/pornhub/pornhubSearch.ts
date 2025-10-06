@@ -47,7 +47,6 @@ export async function searchPornhub(req: Request, res: Response) {
     const url = `${c.PORNHUB}/video/search?search=${spacer(
       query
     )}&page=${page}`;
-    console.log(url);
     const data = await scrapeContent(url);
     logger.info({
       path: req.path,
